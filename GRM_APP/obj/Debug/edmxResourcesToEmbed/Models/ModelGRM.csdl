@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GRMModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GRMEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Company" EntityType="GRMModel.Company" />
+    <EntitySet Name="Review" EntityType="GRMModel.Review" />
+    <EntitySet Name="Skill" EntityType="GRMModel.Skill" />
+    <EntitySet Name="sysdiagrams" EntityType="GRMModel.sysdiagrams" />
+    <EntitySet Name="User" EntityType="GRMModel.User" />
+    <AssociationSet Name="FK_Review_Company" Association="GRMModel.FK_Review_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_User" Association="GRMModel.FK_Review_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="User_Skill" Association="GRMModel.User_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="about" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="logo" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="popularity" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Review" Relationship="GRMModel.FK_Review_Company" FromRole="Company" ToRole="Review" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Int32" />
+    <Property Name="id_company" Type="Int32" />
+    <Property Name="rate" Type="Int32" Nullable="false" />
+    <Property Name="pros" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="cons" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="GRMModel.FK_Review_Company" FromRole="Review" ToRole="Company" />
+    <NavigationProperty Name="User" Relationship="GRMModel.FK_Review_User" FromRole="Review" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="skill_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="User" Relationship="GRMModel.User_Skill" FromRole="Skill" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="surname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="birth_date" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Review" Relationship="GRMModel.FK_Review_User" FromRole="User" ToRole="Review" />
+    <NavigationProperty Name="Skill" Relationship="GRMModel.User_Skill" FromRole="User" ToRole="Skill" />
+  </EntityType>
+  <Association Name="FK_Review_Company">
+    <End Role="Company" Type="GRMModel.Company" Multiplicity="0..1" />
+    <End Role="Review" Type="GRMModel.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_User">
+    <End Role="User" Type="GRMModel.User" Multiplicity="0..1" />
+    <End Role="Review" Type="GRMModel.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Skill">
+    <End Role="Skill" Type="GRMModel.Skill" Multiplicity="*" />
+    <End Role="User" Type="GRMModel.User" Multiplicity="*" />
+  </Association>
+</Schema>

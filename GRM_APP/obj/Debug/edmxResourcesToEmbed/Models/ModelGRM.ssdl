@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GRMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GRMModelStoreContainer">
+    <EntitySet Name="Company" EntityType="GRMModel.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Review" EntityType="GRMModel.Store.Review" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Skill" EntityType="GRMModel.Store.Skill" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="GRMModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="GRMModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User_Skill" EntityType="GRMModel.Store.User_Skill" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Review_Company" Association="GRMModel.Store.FK_Review_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_User" Association="GRMModel.Store.FK_Review_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Skill_Skill" Association="GRMModel.Store.FK_User_Skill_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="User_Skill" EntitySet="User_Skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Skill_User" Association="GRMModel.Store.FK_User_Skill_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Skill" EntitySet="User_Skill" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="about" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="logo" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="popularity" Type="int" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="int" />
+    <Property Name="id_company" Type="int" />
+    <Property Name="rate" Type="int" Nullable="false" />
+    <Property Name="pros" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="cons" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="skill_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="gender" Type="char" MaxLength="10" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User_Skill">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="skill_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="skill_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Review_Company">
+    <End Role="Company" Type="GRMModel.Store.Company" Multiplicity="0..1" />
+    <End Role="Review" Type="GRMModel.Store.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_User">
+    <End Role="User" Type="GRMModel.Store.User" Multiplicity="0..1" />
+    <End Role="Review" Type="GRMModel.Store.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Skill_Skill">
+    <End Role="Skill" Type="GRMModel.Store.Skill" Multiplicity="1" />
+    <End Role="User_Skill" Type="GRMModel.Store.User_Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Skill">
+        <PropertyRef Name="skill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Skill_User">
+    <End Role="User" Type="GRMModel.Store.User" Multiplicity="1" />
+    <End Role="User_Skill" Type="GRMModel.Store.User_Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User_Skill">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

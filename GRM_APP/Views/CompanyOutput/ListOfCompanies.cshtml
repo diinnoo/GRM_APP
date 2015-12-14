@@ -1,0 +1,28 @@
+﻿@model List<GRM_APP.Models.Company>
+
+@{
+    //zašto sam morao pretvoriti u listu??
+    List<GRM_APP.Models.Company> FirstThreeCompanies = Model.Take(3).ToList();
+    List<GRM_APP.Models.Company> SecondSixCompanies = new List<GRM_APP.Models.Company>(Model);
+    SecondSixCompanies.RemoveRange(0, 3);     
+}
+
+@foreach (var company in FirstThreeCompanies)
+{
+    <p>@company.name @company.popularity</p> 
+}
+
+<br /><br /><label>next</label><br /><br />
+
+@foreach (var company in SecondSixCompanies)
+{
+    <p>@company.name @company.popularity</p> 
+}
+
+<br /><br /><label>next</label><br /><br />
+
+@foreach (var company in Model)
+{
+    <p>@company.name @company.popularity</p> 
+}
+

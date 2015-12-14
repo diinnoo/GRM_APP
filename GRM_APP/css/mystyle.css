@@ -1,0 +1,19 @@
+#blue-nav {
+	border-color: #337ab7;
+	background-color: #072331;
+}
+
+#login {
+	color:#FF5703;
+}
+#login:hover {
+	color:#FF9C03;
+}
+
+.navbar-form.navbar-right .btn {
+	background-color: #337ab7;
+}
+
+.white, .white a {
+	color: #fff;
+}

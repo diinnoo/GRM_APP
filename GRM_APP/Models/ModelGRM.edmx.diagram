@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e53b717630c443cac06cd3bd76baa48" Name="Diagram1">
+        <EntityTypeShape EntityType="GRMModel.Company" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GRMModel.Review" Width="1.5" PointX="6" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GRMModel.Skill" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GRMModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GRMModel.User" Width="1.5" PointX="2.5" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="GRMModel.FK_Review_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="GRMModel.FK_Review_User" ManuallyRouted="false" />
+        <AssociationConnector Association="GRMModel.User_Skill" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
