@@ -30,7 +30,7 @@ namespace GRM_APP.Controllers
 
         public ActionResult ReturnCompany(int id)
         {
-
+            ViewBag.reviewList = new List<string>();
             Company company = new Company();
             using (GeneralManager manager = new GeneralManager())
             {
@@ -38,9 +38,12 @@ namespace GRM_APP.Controllers
                 if (company != null)
                 {
                     manager.IncreasePopularity(company);
+                    //ViewBag.reviewList = manager.
                 }
                 
             }
+
+             
 
             return View(company);
         }

@@ -64,5 +64,7 @@ namespace GRM_APP.Models
 
             
         }
+
+        public List<string> returnReview(companyId)
     }
 }
