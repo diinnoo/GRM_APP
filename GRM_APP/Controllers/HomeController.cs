@@ -19,11 +19,11 @@ namespace GRM_APP.Controllers
             return View();
         }
 
-        [HttpPost]
-        public string nesto(string nesto)
-        {
-            return nesto;
-        }
+        //[HttpPost]
+        //public string nesto(string nesto)
+        //{
+        //    return nesto;
+        //}
 
     }
 }

@@ -1,0 +1,12 @@
+﻿@model GRM_APP.Models.Company 
+
+@if (Model == null)
+{
+    <p>Ne postoji trazena kompanija</p>
+}
+else
+{
+    <p>@Model.name</p>
+    <p>@Model.phone</p>
+    <p>@Model.popularity</p>
+}

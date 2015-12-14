@@ -47,5 +47,22 @@ namespace GRM_APP.Models
             }
             catch { }
         }
+
+        public Company returnCompany(int companyId)
+        {
+            return context.Company.SingleOrDefault(x => x.id == companyId);
+        }
+
+        public void IncreasePopularity(Company company)
+        {
+            company.popularity++;
+            try
+            {
+                context.SaveChanges();
+            }
+            catch { }
+
+            
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GRM_APP.Models;
 
 namespace GRM_APP.Controllers
 {
@@ -26,6 +27,24 @@ namespace GRM_APP.Controllers
             
 
         }
+
+        public ActionResult ReturnCompany(int id)
+        {
+
+            Company company = new Company();
+            using (GeneralManager manager = new GeneralManager())
+            {
+                company = manager.returnCompany(id);
+                if (company != null)
+                {
+                    manager.IncreasePopularity(company);
+                }
+                
+            }
+
+            return View(company);
+        }
+
 
     }
 }

@@ -271,6 +271,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CompanyInput\CompanyInput.cshtml" />
     <Content Include="Views\CompanyOutput\ListOfCompanies.cshtml" />
+    <Content Include="Views\CompanyOutput\ReturnCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
