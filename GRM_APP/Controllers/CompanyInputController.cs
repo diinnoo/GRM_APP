@@ -17,7 +17,7 @@ namespace GRM_APP.Controllers
         public ActionResult Index()
         {
             ViewBag.Poruka = "Unesi kompaniju";
-            return View();
+            return View("CompanyInput");
         }
 
         [HttpPost]

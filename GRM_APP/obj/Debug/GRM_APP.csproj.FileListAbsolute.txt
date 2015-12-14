@@ -23,3 +23,28 @@ C:\Users\Dino\Desktop\Oko faksa\GRM_APP\GRM_APP\bin\System.Web.WebPages.Razor.xm
 C:\Users\Dino\Desktop\Oko faksa\GRM_APP\GRM_APP\obj\Debug\GRM_APP.csprojResolveAssemblyReference.cache
 C:\Users\Dino\Desktop\Oko faksa\GRM_APP\GRM_APP\obj\Debug\GRM_APP.dll
 C:\Users\Dino\Desktop\Oko faksa\GRM_APP\GRM_APP\obj\Debug\GRM_APP.pdb
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\GRM_APP.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\GRM_APP.pdb
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\Antlr3.Runtime.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\EntityFramework.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\Newtonsoft.Json.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Mvc.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Optimization.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Providers.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Razor.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.Razor.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\WebGrease.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\EntityFramework.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\Newtonsoft.Json.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Mvc.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.Razor.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\bin\System.Web.WebPages.Razor.xml
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\obj\Debug\GRM_APP.csprojResolveAssemblyReference.cache
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\obj\Debug\GRM_APP.dll
+C:\Users\Dino\Documents\GRM_APP\GRM_APP\obj\Debug\GRM_APP.pdb
